@@ -9,5 +9,8 @@ documentation = "https://apasel422.github.io/binomial-heap/binomial_heap"
 keywords = ["collection", "priority-queue"]
 description = "A priority queue based on a binomial heap."
 
+[features]
+binary_heap_extras = []
+
 [dev-dependencies]
 quickcheck = "0.2"
