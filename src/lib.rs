@@ -226,3 +226,18 @@ impl<'a, T: Ord> ExactSizeIterator for Drain<'a, T> {
         self.iter.len()
     }
 }
+
+#[allow(dead_code)]
+fn assert_covariance() {
+    fn heap<'a, T: Ord>(heap: BinomialHeap<&'static T>) -> BinomialHeap<&'a T> {
+        heap
+    }
+
+    fn into_iter<'a, T: Ord>(iter: IntoIter<&'static T>) -> IntoIter<&'a T> {
+        iter
+    }
+
+    fn iter<'i, 'a, T: Ord>(iter: Iter<'i, &'static T>) -> Iter<'i, &'a T> {
+        iter
+    }
+}
