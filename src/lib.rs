@@ -32,6 +32,7 @@ pub use node::{IntoIter, Iter};
 /// | [`replace`](#method.replace)   | `O(log n)`             |
 ///
 /// [`BinaryHeap`]: https://doc.rust-lang.org/std/collections/struct.BinaryHeap.html
+#[derive(Clone)]
 pub struct BinomialHeap<T: Ord> {
     root: Option<Box<node::Node<T>>>,
     len: usize,
