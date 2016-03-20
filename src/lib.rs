@@ -78,7 +78,7 @@ impl<T: Ord> BinomialHeap<T> {
     ///
     /// ```
     /// # let mut heap = binomial_heap::BinomialHeap::<i32>::new();
-    /// # let mut heap2 = binomial_heap::BinomialHeap::new();
+    /// # let mut heap2 = binomial_heap::BinomialHeap::<i32>::new();
     /// heap.extend(heap2.drain());
     /// ```
     pub fn append(&mut self, other: &mut Self) {
@@ -175,8 +175,22 @@ impl<T: Ord> Extend<T> for BinomialHeap<T> {
     }
 }
 
+impl<'a, T: 'a + Ord + Copy> Extend<&'a T> for BinomialHeap<T> {
+    fn extend<I: IntoIterator<Item = &'a T>>(&mut self, items: I) {
+        for item in items { self.push(*item); }
+    }
+}
+
 impl<T: Ord> std::iter::FromIterator<T> for BinomialHeap<T> {
     fn from_iter<I: IntoIterator<Item = T>>(items: I) -> Self {
+        let mut heap = Self::new();
+        heap.extend(items);
+        heap
+    }
+}
+
+impl<'a, T: 'a + Ord + Copy> std::iter::FromIterator<&'a T> for BinomialHeap<T> {
+    fn from_iter<I: IntoIterator<Item = &'a T>>(items: I) -> Self {
         let mut heap = Self::new();
         heap.extend(items);
         heap
