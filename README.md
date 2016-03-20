@@ -8,7 +8,7 @@ To use `binomial-heap` with Cargo, add this to `Cargo.toml`:
 
 ```toml
 [dependencies]
-binomial_heap = "0.1"
+binomial_heap = "0.2"
 ```
 
 and this to the crate root:
