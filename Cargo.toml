@@ -14,3 +14,7 @@ binary_heap_extras = []
 
 [dev-dependencies]
 quickcheck = "0.2"
+
+[lib]
+bench = false
+test = false
