@@ -2,7 +2,7 @@
 
 A priority queue based on a binomial heap.
 
-Documentation is available at https://apasel422.github.io/binomial-heap/binomial_heap.
+Documentation is available at https://docs.rs/binomial-heap/.
 
 To use `binomial-heap` with Cargo, add this to `Cargo.toml`:
 
